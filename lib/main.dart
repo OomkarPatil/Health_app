@@ -1,4 +1,5 @@
 import 'package:dribble_clone/pages/home_page.dart';
+import 'package:dribble_clone/pages/more_help.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: MoreHelp(),
     );
   }
 }

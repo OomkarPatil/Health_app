@@ -1,15 +1,37 @@
+import 'package:flutter/material.dart';
 import 'package:dribble_clone/utilities/emoties_faces.dart';
 import 'package:dribble_clone/utilities/exercise_tile.dart';
-import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
+Widget _card(String text) {
+  return Container(
+    height: 90,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(20),
+      gradient: LinearGradient(
+        colors: [Colors.lightBlueAccent, Colors.blue, Colors.blueAccent],
+      ),
+    ),
+    child: Center(
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  );
 }
 
-class _HomePageState extends State<HomePage> {
+class MoreHelp extends StatefulWidget {
+  const MoreHelp({super.key});
+
+  @override
+  State<MoreHelp> createState() => _MoreHelpState();
+}
+
+class _MoreHelpState extends State<MoreHelp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,7 +120,6 @@ class _HomePageState extends State<HomePage> {
 
                 SizedBox(height: 30,),
 
-                //How do Your feel
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -113,62 +134,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
 
-                SizedBox(height: 10,),
 
-                //Emojis faces
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    //bad
-                    Column(
-                      children: [
-                        EmotiesFaces(
-                          emotiface: '😔',
-                        ),
-                        SizedBox(height: 10,) ,
-                        Text('bad',
-                          style: TextStyle(color: Colors.white, fontSize: 18 ),
-                        )
-                      ],
-                    ),
-                    //fine
-                    Column(
-                      children: [
-                        EmotiesFaces(
-                          emotiface: '😕',
-                        ),
-                        SizedBox(height: 10,) ,
-                        Text('fine',
-                          style: TextStyle(color: Colors.white, fontSize: 18 ),
-                        )
-                      ],
-                    ),
-                    //good
-                    Column(
-                      children: [
-                        EmotiesFaces(
-                          emotiface: '😌',
-                        ),
-                        SizedBox(height: 10,) ,
-                        Text('Good',
-                          style: TextStyle(color: Colors.white, fontSize: 18 ),
-                        )
-                      ],
-                    ),
-                    //excellent
-                    Column(
-                      children: [
-                        EmotiesFaces(
-                          emotiface: '😜',
-                        ),
-                        SizedBox(height: 10,) ,
-                        Text('Excellent',
-                          style: TextStyle(color: Colors.white, fontSize: 18   ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
               ],
             ),
           ),
@@ -186,34 +152,84 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.white,
                 child: Center(
                   child: Column(children: [
-                    //exercise heading
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Exercises',
-                          style:
-                          TextStyle(
-                            color: Colors.blue,
-                            fontSize: 20,fontWeight: FontWeight.bold
-                          )
+                            'Category',
+                            style:
+                            TextStyle(
+                                color: Colors.blue,
+                                fontSize: 20,fontWeight: FontWeight.bold
+                            )
                         ),
                         Icon(Icons.more_horiz,color: Colors.blue,)
                       ],
                     ),
 
-                    SizedBox(height: 25,),
+                    SizedBox(height: 20),
+
+                    Column(
+                      children: [
+
+                        Row(
+                          children: [
+                            Expanded(child: _card('Relationship')),
+                            SizedBox(width: 10),
+                            Expanded(child: _card('Career')),
+                          ],
+                        ),
+
+                        SizedBox(height: 10),
+
+                        Row(
+                          children: [
+                            Expanded(child: _card('Education')),
+                            SizedBox(width: 10),
+                            Expanded(child: _card('Other')),
+                          ],
+                        ),
+
+                      ],
+                    ),
+
+                    SizedBox(height: 20),
+
+                    //exercise heading
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                            'Consultant',
+                            style:
+                            TextStyle(
+                                color: Colors.blue,
+                                fontSize: 20,fontWeight: FontWeight.bold
+                            )
+                        ),
+                        Icon(Icons.more_horiz,color: Colors.blue,)
+                      ],
+                    ),
+
+                    SizedBox(height: 25),
 
                     //List Views
                     Expanded(
                       child: ListView(
                         children: [
                           ExerciseTile(
-                            icon: Icons.favorite,
-                            title: 'Speaking Skills',
-                            subtitle: '13 Exercise',
+                            icon: Icons.person,
+                            title: 'Jon Bella',
+                            subtitle: ' Educator ',
                             color: Colors.blue,
                           ),
+                          ExerciseTile(
+                            icon: Icons.person,
+                            title: 'Tom Anderson',
+                            subtitle: 'Tutor',
+                            color: Colors.orange,
+                          ),
+
                         ],
                       ),
                     )
@@ -228,3 +244,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+

@@ -4,7 +4,7 @@ class ExerciseTile extends StatelessWidget {
 
   final icon;
   final String title;
-  final int subtitle;
+  final String subtitle;
   final color;
 
   const ExerciseTile({
@@ -37,11 +37,12 @@ class ExerciseTile extends StatelessWidget {
                     child: Container(
                         padding: EdgeInsets.all(16),
                         color: color,
-
                         child: Icon(icon, color: Colors.white,)
                     ),
                   ),
+
                   SizedBox(width: 10,),
+
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -52,7 +53,7 @@ class ExerciseTile extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text( subtitle.toString() + ' Exercise',
+                      Text( subtitle,
                         style: TextStyle(
                           color: Colors.blue[400],
                           fontSize: 14,
